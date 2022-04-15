@@ -23,3 +23,5 @@ for i in range(100):
     out.write(img_out)
 
 out.release()
+
+#아~ 존나힘드네~ 무릎시려~~~
