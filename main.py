@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-import time
 
 img1 = cv2.imread('lec11 resource/lec11_field.bmp')
 img2 = cv2.imread('lec11 resource/lec11_airplane.bmp')
@@ -12,7 +11,7 @@ fps = 20
 out = cv2.VideoWriter('output_201918150.avi',fourcc, fps, (width, height))
 
 for i in range(100):
-    if i<20:
+    if i < 20:
         img_out = img1
     elif i < 100-20:
         alpha = (i-20)/60
