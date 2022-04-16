@@ -10,6 +10,8 @@ fourcc = cv2.VideoWriter_fourcc(*'DIVX')
 fps = 20
 out = cv2.VideoWriter('output_201918150.avi',fourcc, fps, (width, height))
 
+#신건우 바보 !!
+
 for i in range(100):
     if i < 20:
         img_out = img1
