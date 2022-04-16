@@ -1,3 +1,4 @@
+from distutils.cygwinccompiler import Mingw32CCompiler
 import numpy as np
 import cv2
 
@@ -24,5 +25,5 @@ for i in range(100):
 out.release()
 
 #아~ 존나힘드네~ 무릎시려~~~
-#wtf
-#다시 해본다..
+#wtfming
+#다시 해본다..fiwfififfljflgflglfj
