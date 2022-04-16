@@ -26,4 +26,4 @@ out.release()
 
 #아~ 존나힘드네~ 무릎시려~~~
 #ming
-#fiwfifif
+#fiwfififfljflgflglfj
