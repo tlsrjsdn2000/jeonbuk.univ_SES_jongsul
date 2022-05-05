@@ -1,4 +1,7 @@
-# 1 "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\keypad1\\keypad.ino"
+# 1 "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\doorlock\\doorlock_keypad.ino"
+# 2 "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\doorlock\\doorlock_keypad.ino" 2
+# 3 "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\doorlock\\doorlock_keypad.ino" 2
+
 
 
 
@@ -8,10 +11,38 @@ int password[4] = {1, 2, 3, 4}; // 비밀번호 설정
 int correct = 0; // 비밀번호가 맞는 횟수를 세는 변수
 int count = 0; // 번호를 몇개 입력했는지 세는 변수
 
+
+/*const byte ROWS = 4;
+
+const byte COLS = 2;
+
+
+
+char keys[ROWS][COLS] = {
+
+  '1','2','3','4',
+
+  '5','6','7','8'
+
+};
+
+
+
+byte rowPins[ROWS] = {8,7,6,5};
+
+byte colPins[COLS] = {4,3};
+
+*/
+# 25 "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\doorlock\\doorlock_keypad.ino"
+Servo myservo;
+
+// Keypad kpd = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
 void setup() {
   Serial.begin(9600); // 시리얼 통신 시작 속도는 9600  
   pinMode(4, 0x1); // scl_pin 출력으로 설정
   pinMode(5, 0x0); // sdo_pin 입력으로 설정
+  myservo.attach(11); // 11번을 서보모터 핀으로 지정 
 }
 
 void loop() {
@@ -34,17 +65,38 @@ void loop() {
         if(correct == 4){ // correct변수가 설정한 비밀번호의 개수와 같을 경우. (비밀번호가 맞을경우)
           correct = 0; // correct 변수 0으로 초기화
 
+
           Serial.println("Correct Password !!! "); // 비밀번호가 맞았다고 시리얼 모니터에 출력
           Serial.println();
+
+          open();
 
         }
         else{ // 비밀번호가 틀렸을 경우
           correct = 0; // correct 변수 0으로 초기화
 
+
           Serial.println("Wrong Password !!! "); // 비밀번호가 틀렸다고 시리얼 모니터에 출력
           Serial.println();
 
+          close();
+
         }
+
+ /*       if(count==4)
+
+        {
+
+          if(correct==4)
+
+            open();
+
+          else
+
+            close();
+
+        }*/
+# 81 "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\doorlock\\doorlock_keypad.ino"
         count = 0; // 비밀번호를 몇 개를 썼는지 세주는 변수 0으로 초기화
       }
    }
@@ -60,4 +112,16 @@ byte getnumber(void){
     digitalWrite(4, 0x1); // 동기용 클럭 신호 high(Serial Clock)
   }
   return num; // num반환
+}
+
+void open()
+{
+    myservo.write(180);
+    Serial.println("password match, open the door");
+}
+
+void close()
+{
+    myservo.write(0);
+    Serial.println("password mismatch, run the camera");
 }

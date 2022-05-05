@@ -1,5 +1,5 @@
 {
-    "sketch": "project_DoorLock\\keypad1\\keypad.ino",
+    "sketch": "project_DoorLock\\doorlock\\doorlock_keypad.ino",
     "output": "build",
     "port": "COM4",
     "board": "arduino:avr:uno"

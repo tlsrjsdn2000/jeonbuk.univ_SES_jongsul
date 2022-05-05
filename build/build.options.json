@@ -8,5 +8,5 @@
   "hardwareFolders": "C:\\Program Files (x86)\\Arduino\\hardware,C:\\Users\\user\\AppData\\Local\\Arduino15\\packages",
   "otherLibrariesFolders": "C:\\Users\\user\\Documents\\Arduino\\libraries",
   "runtime.ide.version": "10819",
-  "sketchLocation": "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\keypad1\\keypad.ino"
+  "sketchLocation": "c:\\Users\\user\\Documents\\jongsul\\jeonbuk.univ_SES_jongsul-1\\project_DoorLock\\doorlock\\doorlock_keypad.ino"
 }

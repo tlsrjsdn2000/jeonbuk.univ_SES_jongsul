@@ -1,3 +1,5 @@
+#include <Servo.h>
+
 #define scl_pin 4
 #define sdo_pin 5
 #define number 4
@@ -7,6 +9,21 @@ int password[number] = {1, 2, 3, 4};      // 비밀번호 설정
 int correct = 0;                            // 비밀번호가 맞는 횟수를 세는 변수
 int count = 0;                              // 번호를 몇개 입력했는지 세는 변수
  
+
+const byte ROWS = 4;
+const byte COLS = 2;
+
+char keys[ROWS][COLS] = {
+  {'1','2','3','4'},
+  {'5','6','7','8'}
+};
+
+byte rowPins[ROWS] = {8,7,6,5};
+byte colPins[COLS] = {4,3};
+
+Keypad kpd = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+
 void setup() {
   Serial.begin(9600);                       // 시리얼 통신 시작 속도는 9600  
   pinMode(scl_pin, OUTPUT);                  // scl_pin 출력으로 설정
